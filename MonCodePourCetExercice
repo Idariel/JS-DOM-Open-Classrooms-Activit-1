@@ -26,9 +26,24 @@ var listeLiens = [
 
 // TODO : compléter ce fichier pour ajouter les liens à la page web
 
+// SOLUTION I
+// ==========
 for (i=0;i<listeLiens.length;i++) {
   var liensDiv = document.createElement("div"); // création de la div "liensDi"v dans la div "contenu".
     liensDiv.classList.add ("lien"); // Ajout de la classe "lien" à la div "liensDiv" qui permet d'avoir des fonds blancs pour chaque élément de la liste.
+    liensDiv.innerHTML = '<a href='+listeLiens[i].url+'>'+listeLiens[i].titre+'</a>  <span>'+listeLiens[i].url+'<br/>Ajouté par '+listeLiens[i].auteur+'</span>'; // affiche le texte avec les liens dynamiques avec le tableau.
+    var liensURL = liensDiv.firstChild; // equivalent liensDiv.children[0] liensURL permet de modifier les attributs de style CSS
+      liensURL.style.color ="#428bca";
+      liensURL.style["font-weight"] = "bold";
+      liensURL.style["text-decoration"] = "none";
+  document.getElementById('contenu').appendChild(liensDiv);
+};
+
+// SOLUTION II
+// ===========
+listeLiens.forEach () {
+  var liensDiv = document.createElement("div"); // création de la div "liensDi"v dans la div "contenu".
+    liensDiv.classList.add ("lien"); // Ajout de la classe "lien" à la div "liensDiv" (fonds blancs).
     liensDiv.innerHTML = '<a href='+listeLiens[i].url+'>'+listeLiens[i].titre+'</a>  <span>'+listeLiens[i].url+'<br/>Ajouté par '+listeLiens[i].auteur+'</span>'; // affiche le texte avec les liens dynamiques avec le tableau.
     var liensURL = liensDiv.firstChild; // equivalent liensDiv.children[0] liensURL permet de modifier les attributs de style CSS
       liensURL.style.color ="#428bca";
